@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    color: white;
+}
+.navbar{
+    margin: 0;
+    padding: 0;
+}
+.carousel-caption-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 100px; 
+    font-weight: 400; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+    font-family: KaushanScript;
+  }
+
+  @font-face {
+    font-family: KaushanScript;
+    src: url(asset/font/Kaushan_Script/KaushanScript-Regular.ttf);
+    font-family: Judson;
+    src: url(asset/font/Judson/Judson-Regular.ttf);
+    font-family:Inter;
+    src: url(asset/font/Inter/Inter-VariableFont_opsz\,wght.ttf);
+  }
+
+  .card {
+    background-color: transparent; 
+    border: none; 
+  }
+  
+  .card-body {
+    background-color: transparent; 
+  }
+  .card-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+  }
+
+  .title{
+    font-weight: 700;
+    font-family: Judson;
+  }
+
+  .minilogo{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
