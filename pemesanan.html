@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESAN SEKARANG</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>PESAN</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="product">Produk</label>
+                <select class="form-control" id="product" required>
+                    <option value="">Pilih Produk</option>
+                    <option value="Produk 1">Produk 1</option>
+                    <option value="Produk 2">Produk 2</option>
+                    <option value="Produk 3">Produk 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Jumlah</label>
+                <input type="number" class="form-control" id="quantity" min="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Pesan</button>
+        </form>
+        <div id="orderConfirmation" class="mt-4" style="display:none;">
+            <h4>Konfirmasi Pemesanan</h4>
+            <p id="confirmationDetails"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+
+            const confirmationDetails = `Nama: ${name}<br>Email: ${email}<br>Produk: ${product}<br>Jumlah: ${quantity}`;
+            document.getElementById('confirmationDetails').innerHTML = confirmationDetails;
+            document.getElementById('orderConfirmation').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

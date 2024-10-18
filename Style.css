@@ -28,7 +28,6 @@ body{
     font-family:Inter;
     src: url(asset/font/Inter/Inter-VariableFont_opsz\,wght.ttf);
   }
-
   .card {
     background-color: transparent; 
     border: none; 
