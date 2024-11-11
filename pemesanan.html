@@ -9,45 +9,101 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h2>PESAN</h2>
-        <form id="orderForm">
-            <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" required>
+    <div class="container mt-5 ">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2>PESAN</h2>
+                <form id="orderForm">
+                    <div class="form-group" onchange="updateProductOptions()" style="width: 100%;">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group" onchange="updateProductOptions()" style="width: 100%;">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group" onchange="updateProductOptions()" style="width: 100%;">
+                        <label for="nomor">Nomor</label>
+                        <input type="nomor" class="form-control" id="nomor" required>
+                    </div>
+                    <div class="col-12 mb-3">
+
+                        <select class="form-select" id="categorySelect" onchange="updateProductOptions()"
+                            style="width: 100%;">
+                            <option value="">Pilih Menu</option>
+                            <option value="electronics">Makanan</option>
+                            <option value="clothing">Minuman</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mb-3">
+
+                        <select class="form-select" id="categorySelect" onchange="updateProductOptions()"
+                            style="width: 100%;">
+                            <option value="">Makanan</option>
+                            <option value="electronics">Makanan</option>
+                            <option value="clothing">Minuman</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <select class="form-select" id="categorySelect" onchange="updateProductOptions()"
+                            style="width: 100%;">
+                            <option value="">Minuman</option>
+                            <option value="electronics">Makanan</option>
+                            <option value="clothing">Minuman</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="quantity">Jumlah</label>
+                        <input type="number" class="form-control" id="quantity" min="1" required>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
+            <div class="col-md-6 mb-4">
+                <h3>Pilih Produk</h3>
+                <form id="productForm">
+                </form>
+
+                <!-- Daftar produk yang ditambahkan ke troli akan muncul di sini -->
+                </ul>
+
+                <h4 class="mt-3">Total Harga: <span id="totalPrice">Rp 0</span></h4>
+                <h4 class="mb-3">Metode Pembayaran</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="bank_transfer"
+                        value="Bank Transfer" checked>
+                    <label class="form-check-label" for="bank_transfer">Transfer Bank</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="credit_card"
+                        value="Credit Card">
+                    <label class="form-check-label" for="credit_card">Kartu Kredit</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="e_wallet" value="E-Wallet">
+                    <label class="form-check-label" for="e_wallet">E-Wallet (OVO, GoPay, dll.)</label>
+                </div>
+                <!-- Tombol Submit -->
+                <button type="submit" class="btn btn-primary btn-lg w-100">Konfirmasi Pembayaran</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="product">Produk</label>
-                <select class="form-control" id="product" required>
-                    <option value="">Pilih Produk</option>
-                    <option value="Produk 1">Ayam Pop</option>
-                    <option value="Produk 1">Ayam Pop</option>
-                    <option value="Produk 1">Ayam Pop</option>
-                    <option value="Produk 1">Ayam Pop</option>
-                    <option value="Produk 1">Royal Berry</option>
-                    <option value="Produk 1">Royal Berry</option>
-                    <option value="Produk 1">Royal Berry</option>
-                    <option value="Produk 1">Royal Berry</option>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Jumlah</label>
-                <input type="number" class="form-control" id="quantity" min="1" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Pesan</button>
-        </form>
-        <div id="orderConfirmation" class="mt-4" style="display:none;">
-            <h4>Konfirmasi Pemesanan</h4>
-            <p id="confirmationDetails"></p>
         </div>
     </div>
 
+
+    <!-- Bootstrap JS -->
+    <div id="orderConfirmation" class="mt-4" style="display:none;">
+        <h4>Konfirmasi Pemesanan</h4>
+        <p id="confirmationDetails"></p>
+    </div>
+    
+
     <script>
         document.getElementById('orderForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault();      
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const product = document.getElementById('product').value;
