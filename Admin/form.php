@@ -29,22 +29,19 @@
         <h2 class="text-center mt-4">PAGI SORE RESTO</h2>
 
         <div class="form-container">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="data.php" enctype="multipart/form-data" method="post" >
                 <div class="form-group">
                     <label for="Menu">Menu:</label>
                     <input type="text" class="form-control" id="NamaMenu" name="Menu" placeholder="Masukkan menu" required>
                 </div>
-            
-
                 <div class="form-container">
-            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="Harga">Harga:</label>
-                    <input type="text" class="form-control" id="Harga" name="Harga" placeholder="Masukkan harga" required>
+                    <input type="number" class="form-control" id="Harga" name="Harga" placeholder="Masukkan harga" required>
                 </div>
                 
                 <div class="form-container">
-            <form action="" method="post" enctype="multipart/form-data">
+           
                 <div class="form-group">
                     <label for="Deskripsi">Deskripsi:</label>
                     <input type="text" class="form-control" id="Deskripsi" name="Deskripsi" placeholder="MasukkanDeskripsi" required>
@@ -55,44 +52,22 @@
                 <div class="form-group">
                     <label for="Id_Kategori">Id Kategori:</label>
                     <select class="form-control" id="Id_Kategori" name="Id_Kategori" required>
-                        <option value="" disabled selected>Pilih Id kategori</option>
-                        <option value="cleanser">MAKANAN</option>
-                        <option value="toner">MINUMAN</option>
-                        <option value="serum">LainnyaS</option>
+                        <option value="0" disabled selected>Pilih Id kategori</option>
+                        <option value="1">MAKANAN</option>
+                        <option value="2">MINUMAN</option>
                     </select>
                 </div>
 
                 <!-- Input Gambar Barang -->
                 <div class="form-group">
                     <label for="gambarBarang">Upload Gambar Barang:</label>
-                    <input type="file" class="form-control-file" id="gambarBarang" name="gambarBarang" accept="image/*" required>
+                    <input type="file" class="form-control-file" id="gambarBarang" name="gambarBarang" required>
                 </div>
 
                 <!-- Tombol Submit -->
                 <button type="submit" name="submit" class="btn btn-success btn-block">Kirim Data Barang</button>
             </form>
                 </div>
-
-
-
-        <?php
-        if (isset($_POST['submit'])) {
-           echo $NamaBarang = $_POST['namaBarang']; 
-           echo $kategoriBarang = $_POST['kategoriBarang'];
-           echo $kodekategoriBarang = $_POST['kodekategoriBarang'];
-           echo $kodebarang = $_POST['kodebarang'];
-           echo $hargabarang = $_POST['hargabarang'];
-           echo $deskripsibarang = $_POST['deskripsiBarang'];
-           
-           $gambarBarang = $_FILES['gambarBarang']["name"];
-           $tempname = $_FILES['gambarBarang']["tmp_name"];
-           $folder="./img/".$gambarBarang;
-           if (move_uploaded_file($tempname,$folder))
-           echo'<img src="'.$folder.'"';
-        }
-        ?>
-
-
         </div>
     </div>
 
