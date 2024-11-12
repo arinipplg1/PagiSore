@@ -34,13 +34,13 @@
                     <label for="Menu">Menu:</label>
                     <input type="text" class="form-control" id="NamaMenu" name="Menu" placeholder="Masukkan menu" required>
                 </div>
-                <div class="form-container">
+               
                 <div class="form-group">
                     <label for="Harga">Harga:</label>
                     <input type="number" class="form-control" id="Harga" name="Harga" placeholder="Masukkan harga" required>
                 </div>
                 
-                <div class="form-container">
+              
            
                 <div class="form-group">
                     <label for="Deskripsi">Deskripsi:</label>
