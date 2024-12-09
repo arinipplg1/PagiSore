@@ -7,11 +7,9 @@ if (isset($_POST['submit'])) {
     $Harga = $_POST['Harga'];
     $Kategori = $_POST['Id_Kategori'];
     $Image = basename($_FILES['gambarBarang']['name']);
-
-?>
-<?php
-
+    $Id_Menu = $_POST['Id_Menu'];
     $Data = [
+        'Id_Menu' => $Id_Menu,
         'Menu' => $Menu,
         'Deskripsi' => $Deskripsi,
         'Harga' => $Harga,
@@ -34,6 +32,22 @@ if (isset($_POST['submit'])) {
         } else header("location:form.php?errno=1");
     } else {
         echo "data $validasi kurang";
+    }
+}
+
+else if(isset($_GET['del'])){
+    $id = $_GET['del'] ?? null;
+
+    if($id === null || !ctype_digit($id)){
+        header("location:view.resto.php?errno=3");
+    }
+    else {
+        // function delete
+        $result = delMenu($koneksi, $id);
+        if($result) 
+            header("location:view.resto.php?success=1");
+        else 
+            header("location:view.resto.php?errno=5");
     }
 }
 ?>

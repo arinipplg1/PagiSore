@@ -29,13 +29,13 @@ require_once "../config/config.php";
 <body>
 <div class="container mt-4">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-info emphasis text-white">
                 <h4 class="mb-0">Menu Makanan</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <?php
-                        $product = ViewProduct($Koneksi);
+                        $product = ViewProduct($koneksi);
 
                         if($product == 0 ){
                             echo "Tidak ada data";
@@ -55,28 +55,28 @@ require_once "../config/config.php";
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php 
-                                // awalan foreach 
-                                $no = 1; 
-                                foreach($product as $Data) {
-                            ?>
-                            <tr>
-                                <td class="fw-bold"><?=$no?></td>
-                                <td class="fw-bold"><?=$Data['Nama_Menu']?></td>
-                                <td><span class="badge bg-info"><?=$Data['Deskripsi']?></span></td>
-                                <td><?=$Data['Harga']?></td>
-                                <td><?=$Data['Nama_Katalog']?></td>
-                                <td><?=$Data['Gambar']?></td>
-                                <td>Edit</td>
-                                <td>Detale</td>
-                            </tr>
-                            <?php 
-                                $no ++;
-                                }
-                                    // akhiran foreach
-                            ?>
-                        </tbody>
+                            <tbody>
+                                <?php 
+                                    // awalan foreach 
+                                    $no = 1; 
+                                    foreach($product as $Data) {
+                                ?>
+                                <tr>
+                                    <td class="fw-bold"><?=$no?></td>
+                                    <td class="fw-bold"><?=$Data['Nama_Menu']?></td>
+                                    <td><span class="badge bg-info"><?=$Data['Deskripsi']?></span></td>
+                                    <td><?=$Data['Harga']?></td>
+                                    <td><?=$Data['Nama_Katalog']?></td>
+                                    <td><?=$Data['Gambar']?></td>
+                                    <td>Edit</td>
+                                    <td><a href="?del=<?=$Data['Id_Menu'] ?>"> delete</a></td>
+                                </tr>
+                                <?php 
+                                    $no ++;
+                                    }
+                                        // akhiran foreach
+                                ?>
+                            </tbody>
                     </table>
                     <?php
                         }

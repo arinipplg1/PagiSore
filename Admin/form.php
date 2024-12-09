@@ -1,4 +1,4 @@
-"</br>" <!DOCTYPE html>
+</br> <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Tombol Submit -->
-                <button type="submit" name="submit" class="btn btn-success btn-block">Kirim Data Barang</button>
+                <button type="submit" name="submit" class="btn btn-info emphasis btn-block">Kirim Data Barang</button>
             </form>
                 </div>
         </div>

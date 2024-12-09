@@ -1,5 +1,5 @@
 <?php 
-function tambahGambar($dest,array $pict){	 	
+function tambahGambar($dest, $pict){	 	
 	if (!(file_exists("$dest/$pict")))
 	{ 
 		$uploaddir = "$dest/"; 

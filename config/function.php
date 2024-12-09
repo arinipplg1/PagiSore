@@ -1,5 +1,4 @@
 
-
 <?php
 
 function ValidasiData($Data)
@@ -38,7 +37,7 @@ function InputProduct($Data, $Koneksi)
 }
 
 function ViewProduct($koneksi){
-    $sql = "SELECT tb_menu.Nama_Menu, tb_menu.Deskripsi, tb_menu.Harga, tb_menu.Gambar, tb_kategori.Nama_Katalog 
+    $sql = "SELECT tb_menu.Nama_Menu, tb_menu.Deskripsi, tb_menu.Harga, tb_menu.Gambar, tb_kategori.Nama_Katalog ,tb_menu.Id_Menu
 FROM tb_menu 
 LEFT JOIN tb_kategori ON tb_kategori.Id_Kategori = tb_menu.Id_Kategori
 WHERE 1;
@@ -49,3 +48,16 @@ WHERE 1;
     if(mysqli_num_rows($stmt) > 0) return mysqli_fetch_all($stmt, MYSQLI_ASSOC);
     else return false; 
 }
+
+function delMenu($koneksi, $id){
+    $sql = "DELETE FROM tb_menu WHERE Id_Menu = ?";
+    $stmt = mysqli_prepare($koneksi, $sql);
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    $result = mysqli_stmt_execute($stmt);
+
+    if($result) return true;
+    else return false; 
+}
+
+?>
